@@ -10,6 +10,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+//首先
+const express = require('express')
+const app = express()
+const appData = require('../data.json')
+const seller = appData.seller
+const goods = appData.goods
+const ratings = appData.ratings
+const apiRoutes = express.Router()
+app.use('/api', apiRoutes)
+
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -42,6 +53,30 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+
+    before(app) {
+      app.get('/api/seller', (req, res) => {
+        res.json({
+          // 这里是你的json内容
+          errno: 0,
+          data: seller
+        })
+      }),
+        app.get('/api/goods', (req, res) => {
+          res.json({
+            // 这里是你的json内容
+            errno: 0,
+            data: goods
+          })
+        }),
+        app.get('/api/ratings', (req, res) => {
+          res.json({
+            // 这里是你的json内容
+            errno: 0,
+            data: ratings
+          })
+        })
     }
   },
   plugins: [
