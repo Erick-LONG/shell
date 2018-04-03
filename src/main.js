@@ -3,9 +3,9 @@
 import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
-import goods from './components/goods/goods.vue';
-import ratings from './components/ratings/ratings.vue';
-import sellers from './components/sellers/sellers.vue';
+import goods from '@/components/goods/goods.vue';
+import ratings from '@/components/ratings/ratings.vue';
+import sellers from '@/components/sellers/sellers.vue';
 
 const routes = [
   { path: '/goods', component: goods },
@@ -14,10 +14,13 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes: routes
+  routes: routes,
+  linkActiveClass: 'active'
 });
 
 Vue.use(VueRouter);
+
+router.push('/goods');
 
 const app = new Vue({
   components: { App },
