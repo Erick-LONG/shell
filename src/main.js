@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
+import VueResourse from 'vue-resource';
 import goods from 'components/goods/goods.vue';
 import ratings from 'components/ratings/ratings.vue';
 import sellers from 'components/sellers/sellers.vue';
@@ -21,6 +22,7 @@ const router = new VueRouter({
 });
 
 Vue.use(VueRouter);
+Vue.use(VueResourse);
 
 router.push('/goods');
 
