@@ -3,9 +3,11 @@
 import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
-import goods from '@/components/goods/goods.vue';
-import ratings from '@/components/ratings/ratings.vue';
-import sellers from '@/components/sellers/sellers.vue';
+import goods from 'components/goods/goods.vue';
+import ratings from 'components/ratings/ratings.vue';
+import sellers from 'components/sellers/sellers.vue';
+
+import 'common/stylus/index.styl';
 
 const routes = [
   { path: '/goods', component: goods },
